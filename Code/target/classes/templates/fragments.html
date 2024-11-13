@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<div th:fragment="navbar">
+
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">    </head>
+
+    <body>
+    <div class='container'>
+        <nav class='navbar navbar-expand-md navbar-light'>
+
+            <a href=home>
+            </a>
+            <a class='navbar-brand' href="/">scoreDEI</a>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#toggleMobileMenu"
+                    aria-controls="toggleMobileMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <span class='navbar-toggler-icon'></span>
+            </button>
+
+            <div class='collapse navbar-collapse' id='toggleMobileMenu'>
+                <ul class='navbar-nav ms-auto'>
+
+                    <li>
+                        <a class='nav-link' href="/">Home</a>
+                    </li>
+
+                    <li>
+                        <a class='nav-link' href="/stats">Stats</a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="/games">Games</a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="/players">Players</a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="/teams">Teams</a>
+                    </li>
+
+                    <span th:if="${1==0}">
+
+              <li>
+                <a class="nav-link" href="/">Log out</a>
+              </li>
+
+            </span>
+
+                    <span th:if="${1==1}">
+
+              <li>
+                <a class="nav-link" href="/login">Log in</a>
+              </li>
+
+            </span>
+
+                    <span th:if="${1==1}">
+
+              <li>
+                <a class="nav-link" href="/register">Register</a>
+              </li>
+
+            </span>
+
+                    <li>
+                        <a class='nav-link' href="/logout">Log out</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+
+    <hr>
+
+</div>
+
+<body>
+
+</body>

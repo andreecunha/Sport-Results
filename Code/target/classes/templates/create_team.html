@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<div th:replace="fragments :: navbar"></div>
+
+<div class="container">
+
+    <div class="text-center">
+
+    <span th:if="${role==0}">
+        <h1>YOU ARE NOT LOGGED IN</h1>
+        <a href="/login">Login</a>
+    </span>
+
+    <span th:if="${role==1}">
+        <h1>YOU ARE NOT AN ADMIN</h1>
+        <a href="/">Home</a>
+    </span>
+
+    <span th:if="${role==2}">
+
+    <head>
+        New team
+    </head>
+
+    <br>
+    <br>
+    <hr>
+
+
+<form th:action="@{/save_team}" th:object="${team}" method="post">
+    <div class="form-row">
+        <div>
+            <input type="hidden" th:field="*{id}">
+        </div>
+        <div class="col-sm-12 my-auto">
+            <label>Name</label>
+            <input type="text" th:field="*{name}">
+        </div>
+        <div class="col-sm-12 my-auto">
+            <label>Picture</label>
+            <input type="text" th:field="*{picture}">
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Edit/Create Team</button>
+    </div>
+</form>
+
+        </span>
+
+    </div>
+
+</div>
+
+</html>

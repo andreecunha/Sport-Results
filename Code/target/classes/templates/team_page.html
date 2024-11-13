@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<div th:replace="fragments :: navbar"></div>
+
+<div class="container">
+
+    <head>
+        <div class="text-center">
+            <h1 th:text="${team.name}"></h1>
+        </div>
+        <meta charset="utf8"/>
+    </head>
+    <body>
+
+    <br>
+    <br>
+    <hr>
+
+    <br>
+
+<div class="text-center">
+    <div class="col d-flex justify-content-center">
+<div class="card" style="width: 18rem;">
+    <img th:src="@{(${team.picture})}" class="card-img-top">
+    <div class="card-body">
+        <p class="card-text">Team Logo</p>
+    </div>
+</div>
+
+    </div>
+
+    <br>
+    <hr>
+    <span th:if="${role}==2">
+
+<a class="btn btn-primary" th:href="@{/edit_team(id=${team.id})}" role="button">Edit team</a>
+
+    </span>
+
+</div>
+
+</body>
+
+</div>
+
+</html>

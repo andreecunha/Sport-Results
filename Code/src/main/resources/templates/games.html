@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<div th:replace="fragments :: navbar"></div>
+
+<div class="container">
+
+  <div class="text-center">
+
+<head>
+  <title>List of games</title>
+  <meta charset="utf8"/>
+</head>
+
+  </div>
+
+<body>
+
+<div clasS="text-center">
+<h1>List of games</h1>
+
+  <br>
+  <br>
+  <hr>
+
+<table class="table table-dark table-striped">
+  <tr>
+    <th>NAME</th>
+    <th>LOCATION</th>
+    <th>DATE</th>
+    <th>TIME</th>
+    <th>DETAILS</th>
+  </tr>
+  <tr th:each="s : ${games}">
+    <td th:text="${s.name}">Name</td>
+    <td th:text="${s.location}">Location</td>
+    <td th:text="${s.gameDate}">Game Date</td>
+    <td th:text="${s.time}">Game time</td>
+    <td> <a th:href="@{/game_details(id=${s.id})}">Game details</a></td>
+  </tr>
+</table>
+
+  <br>
+  <hr>
+
+  <span th:if="${role}==2">
+
+<a class="btn btn-primary" href="/new_game" role="button">Create game</a>
+
+  </span>
+
+</div>
+
+</body>
+
+</div>
+
+</html>

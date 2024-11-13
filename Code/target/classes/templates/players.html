@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<div th:replace="fragments :: navbar"></div>
+
+<div class="container">
+
+    <div class="text-center">
+
+<head>
+    <div class="text-center">
+    <h1>All players</h1>
+    </div>
+    <meta charset="utf8"/>
+</head>
+<body>
+
+<br>
+<br>
+<hr>
+
+<table class="table table-dark table-striped">
+    <tr>
+        <th>NAME</th>
+        <th>POSITION</th>
+        <th>BIRTH DATE</th>
+        <th>AGE</th>
+        <th>PLAYER DETAILS</th>
+    </tr>
+    <tr th:each="s : ${players}">
+        <td th:text="${s.name}">name</td>
+        <td th:text="${s.position}">position</td>
+        <td th:text="${s.birthDate}">birthDate</td>
+        <td th:text="${s.age}">age</td>
+        <td> <a th:href="@{/player_details(id=${s.id})}">Player page</a></td>
+    </tr>
+</table>
+
+<br>
+<hr>
+<span th:if="${role}==2">
+
+<a class="btn btn-primary" href="/new_player" role="button">Create player</a>
+
+</span>
+
+</body>
+
+    </div>
+
+</div>
+
+</html>

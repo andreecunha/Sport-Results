@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<div th:replace="fragments :: navbar"></div>
+
+<div class="container">
+
+    <div class="text-center">
+
+    <head>
+        <h1>All teams</h1>
+        <meta charset="utf8"/>
+    </head>
+
+    <body>
+
+    <br>
+    <br>
+    <hr>
+
+<table class="table table-dark table-striped">
+    <tr>
+        <th>NAME</th>
+        <th>DETAILS</th>
+    </tr>
+    <tr th:each="s : ${teams}">
+        <td th:text="${s.name}">id</td>
+        <td> <a th:href="@{/team_details(id=${s.id})}">Team page</a></td>
+    </tr>
+</table>
+
+    <br>
+    <hr>
+
+    <span th:if="${role}==2">
+
+    <a class="btn btn-primary" href="/new_team" role="button">Create team</a>
+
+   </span>
+
+    </body>
+
+</div>
+
+</div>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<div th:replace="fragments :: navbar"></div>
+
+<div class="container">
+
+    <div class="text-center">
+
+<span th:if="${role==0}">
+    <h1>YOU ARE NOT LOGGED IN</h1>
+    <a href="/login">Login</a>
+</span>
+
+<span th:if="${role==1}">
+    <h1>YOU ARE NOT AN ADMIN</h1>
+    <a href="/">Home</a>
+</span>
+
+<span th:if="${role==2}">
+
+    <head>
+        New game
+    </head>
+
+    <br>
+    <br>
+    <hr>
+
+    <form th:action="@{/save_game}" th:object="${game}" method="post">
+        <div class ="form-row">
+            <div>
+                <input type="hidden" th:field="*{id}">
+            </div>
+            <div>
+                <label>Location</label>
+                <input type="text" th:field="*{location}">
+            </div>
+            <div>
+                <label>Game date</label>
+                <input type="date" th:field="*{gameDate}">
+            </div>
+            <div>
+                <label>Game time</label>
+                <input type="time" th:field="*{time}">
+            </div>
+            <div>
+                <select class="form-select form-select-lg mb-3" th:field="*{team1}" size="10">
+                    <option th:each="team : ${allTeams}"
+                            th:value="${{team}}"
+                            th:text="${team.name}">
+                        The name
+                    </option>
+                </select>
+            </div>
+              <div>
+                <select class="form-select form-select-lg mb-3" th:field="*{team2}" size="10">
+                    <option th:each="team : ${allTeams}"
+                            th:value="${{team}}"
+                            th:text="${team.name}">
+                        The name
+                    </option>
+                </select>
+            </div>
+            <br>
+            <button class="btn btn-primary" type="submit">Edit/Create Game</button>
+        </div>
+    </form>
+
+</span>
+
+    </div>
+
+</div>
+
+</html>

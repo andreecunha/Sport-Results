@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<div th:replace="fragments :: navbar"></div>
+
+<div class="container">
+
+    <head>
+        <div class="text-center">
+            <h1 th:text="${player.name}"></h1>
+        </div>
+        <meta charset="utf8"/>
+    </head>
+    <body>
+
+    <br>
+    <br>
+    <hr>
+
+    <br>
+
+    <table class="table table-dark table-striped">
+        <tr>
+            <th>NAME</th>
+            <th>POSITION</th>
+            <th>BIRTH DATE</th>
+            <th>AGE</th>
+            <th>GOALS</th>
+        </tr>
+        <td th:text="${player.name}">name</td>
+        <td th:text="${player.position}">position</td>
+        <td th:text="${player.birthDate}">birth date</td>
+        <td th:text="${player.age}">age</td>
+        <td th:text="${goals}">age</td>
+
+        </tr>
+    </table>
+
+    <br>
+
+    <div class="text-center">
+        <div class="col d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <img th:src="@{(${team.picture})}" class="card-img-top">
+                <div class="card-body">
+                    <p class="card-text">Team</p>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <hr>
+
+        <span th:if="${role}==2">
+
+        <a class="btn btn-primary" th:href="@{/edit_player(id=${player.id})}" role="button">Edit player</a>
+
+        </span>
+
+    </div>
+
+    </body>
+
+</div>
+
+</html>
